@@ -1,0 +1,23 @@
+services:
+  janusgraph:
+    image: janusgraph/janusgraph:latest
+    container_name: janusgraph-lab_janusgraph
+    environment:
+      # Configura o backend de armazenamento para InMemory (tudo em memória)
+      # Você pode alterar para cql ou outros, se quiser usar Cassandra ou HBase.
+      - JANUSGRAPH_DEFAULT_STORAGE_BACKEND=inmemory
+
+      # Exemplo de índice (opcional). Normalmente é lucene por padrão:
+      - JANUSGRAPH_DEFAULT_INDEX_BACKEND=lucene
+
+      # (Opcional) Caso queira ver logs mais detalhados:
+      #- JANUSGRAPH_LOG_LEVEL=DEBUG
+
+    ports:
+      - "8182:8182"   # Porta padrão do Gremlin Server
+    # volumes:
+    #   - ./conf/:/opt/janusgraph/conf   # Caso queira montar configurações personalizadas
+    #   - ./data/:/var/lib/janusgraph    # Caso queira persistir dados (não para InMemory)
+
+    # (Opcional) Reinicia automaticamente caso ocorra algum problema
+    # restart: always

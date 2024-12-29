@@ -44,6 +44,7 @@ Este laboratório demonstra como utilizar o JanusGraph, um banco de dados de gra
 2. **Execute** o Docker Compose para subir o JanusGraph:
    ```bash
    docker-compose up -d
+   
    ```
 
    Isso fará o download das imagens necessárias, criará e iniciará containers que incluem o JanusGraph e um servidor de Gremlin (porta padrão: 8182).
